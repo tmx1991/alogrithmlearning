@@ -13,7 +13,6 @@ public class _90SubsetsII
 
 	private List<List<Integer>> res;
 
-	private int a;
 
 	public static void main(String[] args)
 	{
