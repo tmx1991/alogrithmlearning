@@ -28,13 +28,23 @@ public class treeToList {
 //            System.out.println(bt2.val);
 //            bt2 = bt2.left;
 //        }
-        ttl.treeToList(bt1, 1);
+//        ttl.treeToList(bt1, 1);
+//
+//        while (bt2 != null)
+//        {
+//            System.out.println(bt2.val);
+//            bt2 = bt2.right;
+//        }
+//        bt2 =  ttl.treeToList(bt1);
+//
+//        while (bt2 != null)
+//        {
+//            System.out.println(bt2.val);
+//            bt2 = bt2.left;
+//        }
 
-        while (bt2 != null)
-        {
-            System.out.println(bt2.val);
-            bt2 = bt2.right;
-        }
+
+
 
 
 
@@ -69,6 +79,55 @@ public class treeToList {
 
         }
     }
+
+    /**
+     * 此法应该可行，但未有结果
+     * @param root
+     * @return
+     */
+    private BSTreeNode treeToList(BSTreeNode root)
+    {
+        BSTreeNode head = null, tail = null;
+
+        helper(head, tail, root);
+
+        return head;
+
+    }
+
+    private void helper(BSTreeNode head,BSTreeNode tail,BSTreeNode root)
+    {
+        BSTreeNode lt = null,rh = null;
+
+
+        if (root == null)
+        {
+            head = null;
+            tail = null;
+            return;
+        }
+
+        helper(head, lt, root.left);
+        helper(rh, tail, root.right);
+
+        if (lt!=null) {
+            lt.right = root;
+            root.left = lt;
+        } else {
+            head = root;
+        }
+        if (rh!=null) {
+            root.right=rh;
+            rh.left = root;
+        } else {
+            tail = root;
+        }
+
+
+    }
+
+
+
 
 
 }
