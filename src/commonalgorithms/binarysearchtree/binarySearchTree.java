@@ -2,6 +2,9 @@ package commonalgorithms.binarysearchtree;
 
 import com.LeeCode.basefouction.TreeNode;
 
+import java.util.*;
+
+
 /**
  * Created by ttt on 2016/4/21.
  */
@@ -9,6 +12,12 @@ public class binarySearchTree {
     public static void main(String[] args) {
 
         int[] data = new int[]{2,3,4,5,6,7,1};
+
+        Map<String,String> a = new HashMap<String,String>();
+        Set<String> s = new HashSet<String>();
+
+        List<Integer> l = new ArrayList<Integer>();
+
 
 
     }
