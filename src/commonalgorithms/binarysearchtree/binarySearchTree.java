@@ -19,7 +19,7 @@ public class binarySearchTree {
      */
     public TreeNode insertBST(TreeNode root,TreeNode a)
     {
-      TreeNode x,y ;
+      TreeNode x,y=null ;
 
         x = root;
 
