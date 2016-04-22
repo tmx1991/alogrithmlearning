@@ -1,7 +1,7 @@
 package com.LeeCode.aboutLinklist;
 
 import java.util.Scanner;
-
+import com.LeeCode.basefouction.ListNode;
 
 public class _2AddTwoNum
 {
@@ -27,7 +27,6 @@ public class _2AddTwoNum
 		x = scanner.nextInt();
 		while (x != 29)
 		{
- 
 			s = new ListNode(x);
 			r.next = s;
 			r = s;
@@ -72,7 +71,7 @@ public class _2AddTwoNum
 		System.out.print("end");
 		System.out.println();
 
-		latn.addTwoNumbers(Head1, Head2);
+//		latn.addTwoNumbers(Head1, Head2);
 
 	}
 	public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
@@ -185,16 +184,6 @@ public class _2AddTwoNum
 
 	}
 
-	public static class  ListNode
-	{
-		int val;
-		ListNode next;
-
-		ListNode(int x)
-		{
-			val = x;
-		}
-	}
 
 }
  
