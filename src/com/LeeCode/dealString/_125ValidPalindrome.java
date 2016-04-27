@@ -7,7 +7,7 @@ public class _125ValidPalindrome {
 
     public static void main(String[] args) {
 
-        String x = "0p";
+        String x = "0P";
 
         _125ValidPalindrome vp = new _125ValidPalindrome();
 
@@ -36,6 +36,8 @@ public class _125ValidPalindrome {
 
             if(i>=s.length()||j<0) return true;
 
+            System.out.println(i+","+j+Integer.valueOf('P'));
+
             if (i <= j) {
                 if (panduan(s.charAt(i), s.charAt(j)) == false) {
                     return false;
@@ -55,7 +57,7 @@ public class _125ValidPalindrome {
     public boolean panduan(char a, char b) {
         int x;
 
-        if(a>48&&a<57) return a-b==0?true:false;
+        if(a>=48&&a<=57) return a-b==0?true:false;
         x = Math.abs(a - b);
         if (x == 32 || x == 0)
             return true;
