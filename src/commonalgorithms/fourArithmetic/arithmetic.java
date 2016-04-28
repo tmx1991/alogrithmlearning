@@ -3,67 +3,62 @@ import java.util.Stack;
 /**
  * Created by ttt on 2016/4/28.
  * 四则运算
- *
- * 只能处理一位数的运算,首位不能有符号
+ * * 首位不能有符号
  */
 public class arithmetic {
 
     public static void main(String[] args) {
-        String s = " 3+(4-6)*2+6/3";
+        String s = "14/3*2";
+
 
         arithmetic a = new arithmetic();
-        a.operation(s);
+        System.out.println(a.operation(s));
     }
 
 
     public int operation(String s)
     {
-        Stack<Character> operator = new Stack<Character>();
-        Stack<Character> postfix = new Stack<Character>();
+        int j;
+        Stack<String> operator = new Stack<String>();
+        Stack<String> postfix = new Stack<String>();
 
         for(int i=0;i<s.length();i++)
         {
-            if(s.charAt(i)=='+')
+            if(s.charAt(i)=='+'||s.charAt(i)=='-')
             {
-                while(!operator.isEmpty()&&(operator.peek()!='('))
+                while(!operator.isEmpty()&&(!operator.peek().equals("(")))
                    postfix.push(operator.pop());
-                operator.push(s.charAt(i));
+                operator.push(String.valueOf(s.charAt(i)));
             }
-            else if(s.charAt(i)=='-')
+            else if(s.charAt(i)=='*'||s.charAt(i)=='/')
             {
-                while(!operator.isEmpty()&&(operator.peek()!='('))
-                     postfix.push(operator.pop());
-                operator.push(s.charAt(i));
-            }
-            else if(s.charAt(i)=='*')
-            {
-                operator.push(s.charAt(i));
-            }
-            else if(s.charAt(i)=='/')
-            {
-                operator.push(s.charAt(i));
+                while(!operator.isEmpty()&&(!operator.peek().equals("("))&&(!operator.peek().equals("+"))&&(!operator.peek().equals("-")))
+                postfix.push(operator.pop());
+                operator.push(String.valueOf(s.charAt(i)));
             }
             else if(s.charAt(i)=='(')
             {
-                operator.push(s.charAt(i));
+                operator.push(String.valueOf(s.charAt(i)));
             }
             else if(s.charAt(i)==')')
             {
-                while(operator.peek()!='(')
+                while(!operator.peek().equals("("))
                     postfix.push(operator.pop());
                 operator.pop();
             }
             else if(s.charAt(i)>='0'&&s.charAt(i)<='9')
             {
-                postfix.push(s.charAt(i));
+                j=i;
+                while(i+1<s.length()&&s.charAt(i+1)>='0'&&s.charAt(i+1)<='9')
+                {
+                    i++;
+                }
+                postfix.push(s.substring(j,i+1));
             }
             else
             {
 
             }
-
-
-//
         }
         while(!operator.isEmpty())
             postfix.push(operator.pop());
@@ -72,52 +67,42 @@ public class arithmetic {
 //                System.out.print(o+",");
 //            }
 //        System.out.println();
-            for(Character o:postfix)
-            {
-                System.out.print(o+",");
-            }
-
+//            for(String o:postfix)
+//            {
+//                System.out.print(o+",");
+//            }
         Stack<Integer> si = new Stack<Integer>();
         for(int i=0;i<postfix.size();i++)
         {
             int a,b;
-            if(postfix.get(i)=='+')
+            if(postfix.get(i).equals("+"))
             {
                 a = si.pop();
                 b = si.pop();
                 si.push(a+b);
             }
-            else  if(postfix.get(i)=='-')
+            else  if(postfix.get(i).equals("-"))
             {
                 a = si.pop();
                 b = si.pop();
                 si.push(b-a);
             }
-            else  if(postfix.get(i)=='*')
+            else  if(postfix.get(i).equals("*"))
             {
                 a = si.pop();
                 b = si.pop();
                 si.push(a*b);
             }
-            else  if(postfix.get(i)=='/')
+            else  if(postfix.get(i).equals("/"))
             {
                 a = si.pop();
                 b = si.pop();
                 si.push(b/a);
             }else
             {
-                si.push(postfix.get(i)-'0');
+                si.push(Integer.valueOf(postfix.get(i)));
             }
-
-
         }
-        System.out.println(si.size());
-        System.out.println(si.pop());
-
-
-
-
-
-    return 0;
+    return si.pop();
     }
 }
