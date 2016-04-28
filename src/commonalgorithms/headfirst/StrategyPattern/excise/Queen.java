@@ -1,6 +1,6 @@
 package commonalgorithms.headfirst.StrategyPattern.excise;
 
-public class Queen extends Character
+public class Queen extends myCharacter
 {
     public Queen()
     {

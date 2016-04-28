@@ -5,7 +5,7 @@ public class Man
 
 	public static void main(String[] args)
 	{
-	 Character woman = new Queen();
+	 myCharacter woman = new Queen();
 	 woman.fight();
 	 woman.setWeapon(new BowAndArrowBehavior());
 	 woman.fight();
