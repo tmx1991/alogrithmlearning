@@ -1,8 +1,5 @@
 package commonalgorithms.binarytree;
-
 import com.LeeCode.basefouction.TreeNode;
-import com.sun.org.apache.xml.internal.resolver.readers.SAXCatalogParser;
-
 import java.util.Stack;
 
 /**
