@@ -17,7 +17,8 @@ public class _25ReverseNodesinkGroup {
 
         t.PrintList(head);
 
-        ListNode l = reverseList2(head,null);
+        ListNode l = reverseList(head);
+                //reverseList2(head,null);
 
         t.PrintList(l);
 
