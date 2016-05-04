@@ -31,11 +31,21 @@ public class _86PartitionList {
         ListNode newNode = null;
 
         ListNode pNode = head;
+        ListNode pPre = head;
 
-        ListNode pNext = null;
 
-        while(head!=null)
+        while(pNode!=null)
         {
+            if(pNode.val<x)
+            {
+                ListNode pNext = pNode.next;
+
+//                pPre
+            }
+            else
+            {
+
+            }
 
         }
 
