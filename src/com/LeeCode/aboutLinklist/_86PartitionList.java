@@ -24,32 +24,45 @@ public class _86PartitionList {
         t.PrintList(head);
 
 
-        pl.partition(head,3);
+        t.PrintList( pl.partition(head,3));
     }
     public ListNode partition(ListNode head, int x) {
 
-        ListNode newNode = null;
+        if(head == null) return null;
 
-        ListNode pNode = head;
-        ListNode pPre = head;
+        ListNode newNode = new ListNode(x-1);
+        ListNode pHead = newNode;
+        newNode.next = head;
 
+        while( newNode.next!=null&& newNode.next.val<x)
+            newNode =  newNode.next;
+
+        ListNode pNode =newNode.next;
+        ListNode pPre = newNode.next;
 
         while(pNode!=null)
         {
-            if(pNode.val<x)
+            if(pNode.val>=x)
             {
-                ListNode pNext = pNode.next;
 
-//                pPre
             }
             else
             {
+                pPre.next = pNode.next;
 
+                pNode.next = newNode.next;
+
+                newNode.next = pNode;
+
+                newNode = newNode.next;
+
+                pNode = pPre;
             }
-
+            pPre = pNode;
+            pNode = pNode.next;
         }
 
 
-        return head;
+        return pHead.next;
     }
 }
