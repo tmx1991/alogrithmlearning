@@ -1,5 +1,7 @@
 package com.LeeCode.aboutLinklist;
 
+import com.LeeCode.basefouction.ListNode;
+
 /**
  * Created by ttt on 2016/5/7.
  */
