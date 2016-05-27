@@ -1,9 +1,6 @@
 package com.companiestests.huawei;
 
-import java.util.Random;
-import java.util.Scanner;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 /**
  * Created by ttt on 2016/5/15.
@@ -23,9 +20,11 @@ public class statistic {
         }
         for(int ad:ts)
             System.out.println(ad);
+
+        List<?> c1= new ArrayList<String>();
 //        torepeatAndSort(data);
     }
-    public static void torepeatAndSort(int[] d)
+    public  void torepeatAndSort(int[] d)
     {
 
     }
